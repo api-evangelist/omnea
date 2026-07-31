@@ -1,8 +1,29 @@
 aid: omnea
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/omnea.png
 name: Omnea
-description: 'Omnea is a company surfaced as a portfolio company of accel, insight-partners, point-nine
-  and added to the API Evangelist network as a stub for enrichment. Sector: ai. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: >-
+  Omnea is an AI-native procurement platform that automates the full source-to-pay
+  (S2P) process, unifying intake management, strategic sourcing, third-party risk
+  management, and supplier management behind autonomous agents. Buyers raise
+  requests conversationally through Slack, Microsoft Teams, or an OAuth-protected
+  remote MCP (Model Context Protocol) server, and Omnea routes intelligent
+  workflows, price-intelligence benchmarking, continuous supplier monitoring, and
+  automated approvals. The company is backed by Accel, Insight Partners, and
+  Point Nine, and exposes a documented public REST API plus a hosted MCP endpoint
+  for agent integrations. Added to the API Evangelist network from VC-portfolio
+  discovery and enriched from live probes of its public surfaces.
 url: https://raw.githubusercontent.com/api-evangelist/omnea/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,11 +35,32 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Ai
-apis: []
+- Procurement
+- Source-to-Pay
+- Supplier Management
+- Spend Management
+- Agents
+- MCP
+apis:
+- name: Omnea Public API
+  description: >-
+    Omnea's documented public REST API for programmatic access to the procurement
+    platform. The reference is served as a client-rendered docs app; the OpenAPI
+    definition is not published at a static path and access is authenticated.
+  humanURL: https://docs.omnea.co/
+  baseURL: https://app.omnea.co/public-api
+  tags:
+  - Procurement
+  - REST
+  properties:
+  - type: APIReference
+    url: https://docs.omnea.co/
+  - type: Authentication
+    url: authentication/omnea-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -27,3 +69,36 @@ maintainers:
 common:
 - type: Website
   url: https://www.omnea.co/
+- type: DeveloperPortal
+  url: https://docs.omnea.co/
+- type: Documentation
+  url: https://docs.omnea.co/
+- type: APIReference
+  url: https://docs.omnea.co/
+- type: Blog
+  url: https://www.omnea.co/resources/blog
+- type: Support
+  url: https://www.omnea.co/resources
+- type: SignUp
+  url: https://app.omnea.co/login
+- type: TermsOfService
+  url: https://www.omnea.co/documents/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.omnea.co/documents/privacy-policy
+- type: StatusPage
+  url: https://status.omnea.co/
+- type: MCPServer
+  url: mcp/omnea-mcp.yml
+- type: Authentication
+  url: authentication/omnea-authentication.yml
+- type: WellKnown
+  url: well-known/omnea-well-known.yml
+- type: Lifecycle
+  url: lifecycle/omnea-lifecycle.yml
+- type: DomainSecurity
+  url: security/omnea-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 6
+  pass: local-v1

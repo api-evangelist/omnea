@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: searched
+source: https://status.omnea.co/ (Atlassian Statuspage)
+description: >-
+  Omnea publishes an operational status page hosted on Atlassian Statuspage.
+  A single "Omnea Platform" component is tracked (99.99% uptime over the
+  trailing 90 days). No public versioning, deprecation, or sunset-header policy
+  was found on the marketing site or status page.
+status_page:
+  provider: Atlassian Statuspage
+  url: https://status.omnea.co/
+  history: https://status.omnea.co/history
+  uptime: https://status.omnea.co/uptime
+  feeds:
+    rss: https://status.omnea.co/history.rss
+    atom: https://status.omnea.co/history.atom
+  components:
+  - name: Omnea Platform
+    uptime_90d: '99.99%'
+versioning:
+  policy: not-published
+deprecation:
+  policy: not-published
+  sunset_header: not-observed
+sla:
+  published: false

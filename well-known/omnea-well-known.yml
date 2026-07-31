@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of Omnea hosts (.well-known discovery)
+description: >-
+  Well-known discovery endpoints probed across Omnea hosts. The marketing host
+  (www.omnea.co) publishes none. The remote MCP host (mcp.omnea.co) publishes a
+  full OAuth 2.0 / OpenID Connect authorization-server + protected-resource
+  discovery set, delegated to WorkOS AuthKit (personal-flight-18.authkit.app).
+hosts:
+- host: www.omnea.co
+  endpoints:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: mcp.omnea.co
+  endpoints:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: omnea-mcp-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: omnea-mcp-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: omnea-mcp-oauth-protected-resource.json
+  - path: /.well-known/security.txt
+    status: 404
