@@ -2,16 +2,12 @@ generated: '2026-07-20'
 method: searched
 status: published
 source: https://mcp.omnea.co/ (linked from https://www.omnea.co/ as the developer/integration surface)
-description: >-
-  Omnea operates an official remote MCP (Model Context Protocol) server at
-  https://mcp.omnea.co, surfaced from the Omnea homepage as its primary
-  developer/integration entry point and used to power conversational
-  procurement intake from agent clients (alongside Slack and Teams). The
-  endpoint is OAuth-protected: an unauthenticated JSON-RPC initialize returns
-  HTTP 401 {"error":"Authentication required"}. Authorization follows RFC 9728
-  (protected resource) with the authorization server delegated to WorkOS
-  AuthKit. The tool inventory is gated behind authentication and could not be
-  enumerated without credentials.
+description: 'Omnea operates an official remote MCP (Model Context Protocol) server at https://mcp.omnea.co,
+  surfaced from the Omnea homepage as its primary developer/integration entry point and used to power
+  conversational procurement intake from agent clients (alongside Slack and Teams). The endpoint is OAuth-protected:
+  an unauthenticated JSON-RPC initialize returns HTTP 401 {"error":"Authentication required"}. Authorization
+  follows RFC 9728 (protected resource) with the authorization server delegated to WorkOS AuthKit. The
+  tool inventory is gated behind authentication and could not be enumerated without credentials.'
 server:
   name: omnea
   transport: http
@@ -27,7 +23,12 @@ server:
   - email
   - offline_access
 tools: []
-tools_note: >-
-  Tool list not captured — the MCP endpoint requires OAuth and returns 401 to
-  unauthenticated initialize requests. No verbatim tool inventory is published
-  on the marketing site.
+tools_note: Tool list not captured — the MCP endpoint requires OAuth and returns 401 to unauthenticated
+  initialize requests. No verbatim tool inventory is published on the marketing site.
+deployment:
+  mode: remote
+  endpoint: https://mcp.omnea.co
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
