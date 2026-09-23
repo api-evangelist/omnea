@@ -1,0 +1,33 @@
+# Front Door AI Index — omnea — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: omnea
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.omnea.co
+  final_host: www.omnea.co
+  ownership: own
+  owner: omnea
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 29
+  host_score: 29
+  density: 13.59
+  words: 2134
+  tiers:
+    agentic: 9
+    core: 18
+    model: 2
+  ambiguous: 14
+  top_terms:
+    AI: 18
+    agent: 6
+    agentic: 5
+    intelligence: 5
+    MCP: 3
+    automation: 3
+    ChatGPT: 1
+    Claude: 1
+    copilot: 1

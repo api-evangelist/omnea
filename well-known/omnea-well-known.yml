@@ -1,11 +1,9 @@
-generated: '2026-07-20'
+generated: '2026-09-19'
 method: searched
 source: live probes of Omnea hosts (.well-known discovery)
-description: >-
-  Well-known discovery endpoints probed across Omnea hosts. The marketing host
-  (www.omnea.co) publishes none. The remote MCP host (mcp.omnea.co) publishes a
-  full OAuth 2.0 / OpenID Connect authorization-server + protected-resource
-  discovery set, delegated to WorkOS AuthKit (personal-flight-18.authkit.app).
+description: Well-known discovery endpoints probed across Omnea hosts. The marketing host (www.omnea.co)
+  publishes none. The remote MCP host (mcp.omnea.co) publishes a full OAuth 2.0 / OpenID Connect authorization-server
+  + protected-resource discovery set, delegated to WorkOS AuthKit (personal-flight-18.authkit.app).
 hosts:
 - host: www.omnea.co
   endpoints:
@@ -32,3 +30,32 @@ hosts:
     file: omnea-mcp-oauth-protected-resource.json
   - path: /.well-known/security.txt
     status: 404
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: omnea-mcp-oauth-protected-resource.json
+    bytes: 205
+  path_echo_control: passed
+- host: https://personal-flight-18.authkit.app
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: omnea-personal-flight-18-oauth-authorization-server.json
+    bytes: 886
+  path_echo_control: passed
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://mcp.omnea.co
+    path: /.well-known/oauth-protected-resource
+    file: omnea-mcp-oauth-protected-resource.json
+  - host: https://personal-flight-18.authkit.app
+    path: /.well-known/oauth-authorization-server
+    file: omnea-personal-flight-18-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
